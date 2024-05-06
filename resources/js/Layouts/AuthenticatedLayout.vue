@@ -37,7 +37,13 @@ const showingNavigationDropdown = ref(false);
 
                         <div class="hidden sm:flex sm:items-center sm:ms-6">
                             <!-- Settings Dropdown -->
-                            <div class="ms-3 relative">
+                            <div class="ms-3 relative sm:flex sm:items-center sm:gap-4">
+                                <div class="home-icon">
+                                    <Link :href="route('home')">
+                                        <font-awesome-icon  icon="fa-solid fa-house"/>
+                                    </Link>
+                                </div>
+                                <!--  -->
                                 <Dropdown align="right" width="48">
                                     <template #trigger>
                                         <span class="inline-flex rounded-md">
@@ -113,7 +119,15 @@ const showingNavigationDropdown = ref(false);
                 >
                     <div class="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                            Dashboard
+                            <span>
+                                Dashboard
+                            </span>
+
+                            <div class="home-icon">
+                                <Link :href="route('home')">
+                                    <font-awesome-icon  icon="fa-solid fa-house"/>
+                                </Link>
+                            </div>
                         </ResponsiveNavLink>
                     </div>
 
