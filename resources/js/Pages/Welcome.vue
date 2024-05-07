@@ -15,7 +15,7 @@ defineProps({
     phpVersion: {
         type: String,
         required: true,
-    },
+    },c
 });
 
 function handleImageError() {

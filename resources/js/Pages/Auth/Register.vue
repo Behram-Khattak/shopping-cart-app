@@ -4,6 +4,7 @@ import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
+import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 
 const form = useForm({
@@ -23,6 +24,9 @@ const submit = () => {
 <template>
     <GuestLayout>
         <Head title="Register" />
+
+        <!-- logo -->
+        <ApplicationLogo />
 
         <div
             class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg"
