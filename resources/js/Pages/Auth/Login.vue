@@ -39,14 +39,19 @@ const submit = () => {
 
         <!-- logo -->
         <div class="max-w-screen-xl px-6 grid sm:grid-cols-2 place-items-center h-screen">
-            <h1 class="uppercase sm:text-8xl w-1/2 font-extrabold text-indigo-500 flex">
-                shopping center
-            </h1>
+            <div class="page-title">
+                <h1 class="uppercase text-6xl lg:text-7xl xl:text-8xl text-center sm:w-1/2 font-extrabold text-indigo-500">
+                    shopping center
+                    <font-awesome-icon class="sm:p-4 text-transparent stroke-[2rem] stroke-indigo-500" icon="fas fa-cart-shopping" />
+                </h1>
+            </div>
             <!--  -->
-            <div
-                class="w-full py-4 shadow-md sm:shadow-none overflow-hidden sm:rounded-lg"
-            >
+            <div class="w-full p-4 overflow-hidden sm:rounded-lg">
+
                 <form @submit.prevent="submit">
+                    <!-- form title -->
+                    <h2 class="uppercase text-4xl text-center py-4 font-extrabold text-indigo-500">login</h2>
+
                     <div>
                         <InputLabel for="email" value="Email" />
 
@@ -85,24 +90,26 @@ const submit = () => {
                         </label>
                     </div>
 
-                    <div class="flex items-center justify-end mt-4">
-                        <Link
-                            v-if="canResetPassword"
-                            :href="route('password.request')"
-                            class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                        >
-                            Forgot your password?
-                        </Link>
+                    <div class="mt-4">
+                        <div>
+                            <Link
+                                v-if="canResetPassword"
+                                :href="route('password.request')"
+                                class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none"
+                            >
+                                Forgot your password?
+                            </Link>
+                        </div>
 
-                        <PrimaryButton class="ms-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                        <PrimaryButton class="mt-8 w-full" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                             Log in
                         </PrimaryButton>
                     </div>
 
-                    <div class="text-right pt-8">
+                    <div class="text-center pt-8">
                         <Link
                             :href="route('register')"
-                            class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none"
                         >
                             Don't Have An Account?
                         </Link>
