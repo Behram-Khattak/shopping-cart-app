@@ -20,6 +20,13 @@ const props = defineProps({
             <!-- nav items -->
             <nav v-if="props.canLogin" class="-mx-3 flex flex-1 justify-end">
                 <Link
+                    :href="route('frontend.shopping-cart')"
+                    class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                >
+                    <font-awesome-icon class="text-transparent hover:text-indigo-500 stroke-[2rem] stroke-indigo-500" icon="fas fa-cart-shopping" size="lg" />
+                </Link>
+
+                <Link
                     v-if="$page.props.auth.user"
                     :href="route('dashboard')"
                     class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"

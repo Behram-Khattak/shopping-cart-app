@@ -8,20 +8,11 @@ import TextInput from '@/Components/TextInput.vue';
 import ShoppingCard from '@/Components/ShoppingCard.vue';
 import FrontendHeader from '@/Components/FrontendHeader.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
-
-defineProps({
-    canLogin: {
-        type: Boolean,
-    },
-    canRegister: {
-        type: Boolean,
-    },
-});
 </script>
 
 <template>
     <GuestLayout>
-        <Head title="Home" />
+        <Head title="Cart" />
 
         <!-- <div class="shopping-cart">
             <section class="py-8 antialiased dark:bg-gray-900 md:py-16">
@@ -340,11 +331,11 @@ defineProps({
         <div class="container">
             <div class="shopping-card-items max-w-screen-xl mx-auto px-4 py-8">
                 <div class="">
-                    <h3 class="text-2xl uppercase font-semibold text-gray-500">products</h3>
+                    <h3 class="text-2xl uppercase font-semibold text-gray-500">cart</h3>
                     <!-- card items -->
                     <div class="mt-6 grid sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:mt-8">
                         <!-- shopping card products -->
-                        <ShoppingCard />
+                        <!-- <ShoppingCard /> -->
                     </div>
                 </div>
             </div>
