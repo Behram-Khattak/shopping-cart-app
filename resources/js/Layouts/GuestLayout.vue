@@ -1,5 +1,6 @@
 <script setup>
 import FrontendHeader from '@/Components/FrontendHeader.vue';
+import FrontendFooter from '@/Components/FrontendFooter.vue';
 import Breadcrumbs from '@/Components/Breadcrumbs.vue';
 import { Link } from '@inertiajs/vue3';
 
@@ -14,14 +15,17 @@ defineProps({
 </script>
 
 <template>
-    <div class="flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
+    <div class="flex flex-col sm:justify-center items-center py-6">
         <!-- header -->
         <FrontendHeader :canLogin :canRegister />
 
         <!-- breadcrumbs -->
-        <Breadcrumbs />
+        <!-- <Breadcrumbs /> -->
 
         <!-- main content -->
         <slot />
+
+        <!-- footer -->
+        <FrontendFooter />
     </div>
 </template>

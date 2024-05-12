@@ -14,7 +14,7 @@ const props = defineProps({
 
 <template>
     <div class="w-full container mb-8">
-        <header class="max-w-screen-xl mx-auto px-4 grid grid-cols-2 items-center border-b-2 sm:pt-10 pb-5">
+        <header class="max-w-screen-xl mx-auto px-4 grid grid-cols-2 items-center border-b-2 pb-5">
             <!-- nav logo -->
             <ApplicationLogo />
             <!-- nav items -->
