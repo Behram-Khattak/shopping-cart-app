@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreShoppingCartRequest;
-use App\Http\Requests\UpdateShoppingCartRequest;
-use App\Models\ShoppingCart;
+use App\Http\Requests\StoreProductsRequest;
+use App\Http\Requests\UpdateProductsRequest;
+use App\Models\Products;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-class ShoppingCartController extends Controller
+class ProductsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return Inertia::render('Frontend/ShoppingCart', [
+        return Inertia::render('Frontend/Products', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
         ]);
@@ -32,7 +32,7 @@ class ShoppingCartController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreShoppingCartRequest $request)
+    public function store(StoreProductsRequest $request)
     {
         //
     }
@@ -40,7 +40,7 @@ class ShoppingCartController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ShoppingCart $shoppingCart)
+    public function show(Products $products)
     {
         //
     }
@@ -48,7 +48,7 @@ class ShoppingCartController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ShoppingCart $shoppingCart)
+    public function edit(Products $products)
     {
         //
     }
@@ -56,7 +56,7 @@ class ShoppingCartController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateShoppingCartRequest $request, ShoppingCart $shoppingCart)
+    public function update(UpdateProductsRequest $request, Products $products)
     {
         //
     }
@@ -64,7 +64,7 @@ class ShoppingCartController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ShoppingCart $shoppingCart)
+    public function destroy(Products $products)
     {
         //
     }

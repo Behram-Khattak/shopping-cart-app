@@ -14,9 +14,28 @@ const props = defineProps({
 
 <template>
     <div class="w-full container mb-8">
-        <header class="max-w-screen-xl mx-auto px-4 grid grid-cols-2 items-center border-b-2 pb-5">
+        <header class="max-w-screen-xl mx-auto px-4 grid grid-cols-3 items-center border-b-2 pb-5">
             <!-- nav logo -->
             <ApplicationLogo />
+
+            <nav class="-mx-3 flex flex-1 justify-center">
+                <Link
+                    :href="route('home')"
+                    class="rounded-md capitalize font-semibold px-3 py-1 text-gray-500 ring-1 ring-transparent hover:border-2 hover:border-indigo-500 transition hover:text-indigo-500 focus:outline-none dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                >
+                    home
+                    <font-awesome-icon class="text-transparent stroke-[2rem] stroke-indigo-500 pl-1" icon="fas fa-home" size="md" />
+                </Link>
+                <!-- products nav link -->
+                <Link
+                    :href="route('frontend.products')"
+                    class="rounded-md capitalize font-semibold px-3 py-1 text-gray-500 ring-1 ring-transparent hover:border-2 hover:border-indigo-500 transition hover:text-indigo-500 focus:outline-none dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                >
+                    products
+                    <font-awesome-icon class="text-transparent stroke-[2rem] stroke-indigo-500 pl-1" icon="fas fa-box" size="md" />
+                </Link>
+            </nav>
+
             <!-- nav items -->
             <nav v-if="props.canLogin" class="-mx-3 flex flex-1 justify-end">
                 <Link

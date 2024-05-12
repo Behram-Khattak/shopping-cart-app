@@ -26,7 +26,7 @@ defineProps({
         <div class="container">
             <div class="shopping-card-items max-w-screen-xl mx-auto px-4 py-8">
                 <div class="">
-                    <h3 class="text-2xl uppercase font-bold text-gray-500">products</h3>
+                    <h3 class="text-2xl uppercase font-bold text-gray-500">new arrivals</h3>
                     <!-- card items -->
                     <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:mt-8">
                         <!-- shopping card products -->

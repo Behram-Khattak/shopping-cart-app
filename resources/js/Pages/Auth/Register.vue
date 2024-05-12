@@ -27,13 +27,13 @@ const submit = () => {
 
         <div class="max-w-screen-xl px-6 grid sm:grid-cols-2 place-items-center">
             <div class="page-title">
-                <h1 class="uppercase text-6xl lg:text-7xl xl:text-8xl text-center sm:w-1/2 font-extrabold text-indigo-500">
+                <h1 class="uppercase text-6xl lg:text-7xl xl:text-8xl text-center sm:w-2/1 font-extrabold text-indigo-500">
                     shopping center
                     <font-awesome-icon class="sm:p-4 text-transparent stroke-[2rem] stroke-indigo-500" icon="fas fa-cart-shopping" />
                 </h1>
             </div>
 
-            <div class="w-full p-4 overflow-hidden sm:rounded-lg">
+            <div class="w-full py-16 overflow-hidden sm:rounded-lg">
                 <form @submit.prevent="submit">
                     <!-- form title -->
                     <h2 class="uppercase text-4xl text-center py-4 font-extrabold text-indigo-500">register</h2>

@@ -5,12 +5,20 @@ import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
-import ShoppingCard from '@/Components/ShoppingCard.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
+
+defineProps({
+    canLogin: {
+        type: Boolean,
+    },
+    canRegister: {
+        type: Boolean,
+    },
+});
 </script>
 
 <template>
-    <GuestLayout>
+    <GuestLayout :canLogin :canRegister>
         <Head title="Cart" />
 
         <!-- main content shopping card -->

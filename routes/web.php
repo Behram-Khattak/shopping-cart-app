@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShoppingCartController;
 use Illuminate\Foundation\Application;
@@ -10,8 +11,6 @@ Route::get('/', function () {
     return Inertia::render('Frontend/Home', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
     ]);
 })->name('home');
 
@@ -22,6 +21,10 @@ Route::get('/dashboard', function () {
 Route::name('frontend.')->group(function () {
     Route::controller(ShoppingCartController::class)->group(function () {
         Route::get('/cart', 'index')->name('shopping-cart');
+    });
+
+    Route::controller(ProductsController::class)->group(function () {
+        Route::get('/products', 'index')->name('products');
     });
 });
 
