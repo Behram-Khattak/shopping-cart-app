@@ -38,7 +38,7 @@ const submit = () => {
         </div>
 
         <!-- logo -->
-        <div class="max-w-screen-xl px-6 grid sm:grid-cols-2 place-items-center h-screen">
+        <div class="max-w-screen-xl px-6 grid sm:grid-cols-2 place-items-center">
             <div class="page-title">
                 <h1 class="uppercase text-6xl lg:text-7xl xl:text-8xl text-center sm:w-1/2 font-extrabold text-indigo-500">
                     shopping center
