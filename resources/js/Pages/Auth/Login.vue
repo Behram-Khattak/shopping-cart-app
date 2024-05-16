@@ -46,7 +46,7 @@ const submit = () => {
                 </h1>
             </div>
             <!--  -->
-            <div class="w-full py-16 overflow-hidden sm:rounded-lg">
+            <div class="w-full py-16 px-6 overflow-hidden sm:rounded-lg">
 
                 <form @submit.prevent="submit">
                     <!-- form title -->

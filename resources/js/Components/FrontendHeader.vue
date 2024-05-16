@@ -14,61 +14,64 @@ const props = defineProps({
 
 <template>
     <div class="w-full container mb-8">
-        <header class="max-w-screen-xl mx-auto px-4 grid grid-cols-3 items-center border-b-2 pb-5">
+        <header class="max-w-screen-xl mx-auto px-4 border-b-2 pb-5">
             <!-- nav logo -->
-            <ApplicationLogo />
-
-            <nav class="-mx-3 flex flex-1 justify-center">
-                <Link
-                    :href="route('home')"
-                    class="rounded-md capitalize font-semibold px-3 py-1 text-gray-500 ring-1 ring-transparent hover:border-2 hover:border-indigo-500 transition hover:text-indigo-500 focus:outline-none dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                >
-                    home
-                    <font-awesome-icon class="text-transparent stroke-[2rem] stroke-indigo-500 pl-1" icon="fas fa-home" size="md" />
-                </Link>
-                <!-- products nav link -->
-                <Link
-                    :href="route('frontend.products')"
-                    class="rounded-md capitalize font-semibold px-3 py-1 text-gray-500 ring-1 ring-transparent hover:border-2 hover:border-indigo-500 transition hover:text-indigo-500 focus:outline-none dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                >
-                    products
-                    <font-awesome-icon class="text-transparent stroke-[2rem] stroke-indigo-500 pl-1" icon="fas fa-box" size="md" />
-                </Link>
-            </nav>
+            <!-- <ApplicationLogo /> -->
 
             <!-- nav items -->
-            <nav v-if="props.canLogin" class="-mx-3 flex flex-1 justify-end">
-                <Link
-                    :href="route('frontend.shopping-cart')"
-                    class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                >
-                    <font-awesome-icon class="text-transparent hover:text-indigo-500 stroke-[2rem] stroke-indigo-500" icon="fas fa-cart-shopping" size="lg" />
-                </Link>
+            <nav class="bg-white border-gray-200 dark:bg-gray-900">
+                <div class="flex flex-wrap items-center justify-between">
+                    <ApplicationLogo />
 
-                <Link
-                    v-if="$page.props.auth.user"
-                    :href="route('dashboard')"
-                    class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                >
-                    Dashboard
-                </Link>
+                    <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                        </svg>
+                    </button>
 
-                <template v-else>
-                    <Link
-                        :href="route('login')"
-                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                    >
-                        Log in
-                    </Link>
+                    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                        <ul v-if="props.canLogin" class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                            <!-- unauthenticated links -->
+                            <li>
+                                <Link :href="route('home')" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">
+                                    Home
+                                    <font-awesome-icon class="text-transparent stroke-[2rem] stroke-indigo-500 pl-1" icon="fas fa-home" size="md" />
+                                </Link>
+                            </li>
+                            <!--  -->
+                            <li>
+                                <Link :href="route('frontend.products')" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                                    Products
+                                    <font-awesome-icon class="text-transparent stroke-[2rem] stroke-indigo-500 pl-1" icon="fas fa-box" size="md" />
+                                </Link>
+                            </li>
 
-                    <Link
-                        v-if="props.canRegister"
-                        :href="route('register')"
-                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                    >
-                        Register
-                    </Link>
-                </template>
+                            <li v-if="$page.props.auth.user">
+                                <Link :href="route('dashboard')" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                                    Dashboard
+                                </Link>
+                            </li>
+
+                            <!-- authenticated links -->
+                            <template v-else>
+                                <li>
+                                    <Link :href="route('login')" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</Link>
+                                </li>
+                                <!--  -->
+                                <li>
+                                    <Link :href="route('register')" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Register</Link>
+                                </li>
+                            </template>
+                            <!-- shopping cart icon -->
+                            <li>
+                                <Link :href="route('frontend.shopping-cart')" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                                    <font-awesome-icon class="text-transparent hover:text-indigo-500 stroke-[2rem] stroke-indigo-500" icon="fas fa-cart-shopping" size="lg" />
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </nav>
         </header>
     </div>

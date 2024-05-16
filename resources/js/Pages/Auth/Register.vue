@@ -33,7 +33,7 @@ const submit = () => {
                 </h1>
             </div>
 
-            <div class="w-full py-16 overflow-hidden sm:rounded-lg">
+            <div class="w-full py-16 px-6 overflow-hidden sm:rounded-lg">
                 <form @submit.prevent="submit">
                     <!-- form title -->
                     <h2 class="uppercase text-4xl text-center py-4 font-extrabold text-indigo-500">register</h2>
