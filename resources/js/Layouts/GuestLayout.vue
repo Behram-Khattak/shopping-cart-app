@@ -24,7 +24,7 @@ const currentUrl = () => {
     <div class="min-h-screen flex flex-col sm:justify-center items-center py-6">
         <!-- header -->
         <FrontendHeader
-            v-if="currentUrl() !== 'Auth/Login' && currentUrl() !== 'Auth/Register'"
+            v-if="currentUrl() !== 'Auth/Login' && currentUrl() !== 'Auth/Register' && currentUrl() !== 'Auth/forgot-password'"
             :canLogin
             :canRegister
         />

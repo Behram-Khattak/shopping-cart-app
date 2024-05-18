@@ -1,6 +1,8 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
+import Dropdown from '@/Components/Dropdown.vue';
+import DropdownLink from '@/Components/DropdownLink.vue';
 
 const props = defineProps({
     canLogin: {
@@ -31,44 +33,72 @@ const props = defineProps({
                     </button>
 
                     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-                        <ul v-if="props.canLogin" class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                        <ul v-if="props.canLogin" class="font-medium flex flex-col sm:items-center p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                             <!-- unauthenticated links -->
                             <li>
-                                <Link :href="route('home')" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">
+                                <Link :href="route('home')" class="block py-2 px-3 text-white bg-indigo-700 rounded md:bg-transparent md:text-indigo-700 md:p-0 dark:text-white md:dark:text-indigo-500" aria-current="page">
                                     Home
-                                    <font-awesome-icon class="text-transparent stroke-[2rem] stroke-indigo-500 pl-1" icon="fas fa-home" size="md" />
+                                    <font-awesome-icon class="text-transparent stroke-[2rem] sm:stroke-indigo-500 stroke-white pl-1" icon="fas fa-home" />
                                 </Link>
                             </li>
                             <!--  -->
                             <li>
-                                <Link :href="route('frontend.products')" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                                <Link :href="route('frontend.products')" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-indigo-700 md:p-0 dark:text-white md:dark:hover:text-indigo-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
                                     Products
-                                    <font-awesome-icon class="text-transparent stroke-[2rem] stroke-indigo-500 pl-1" icon="fas fa-box" size="md" />
+                                    <font-awesome-icon class="text-transparent stroke-[2rem] stroke-indigo-500 pl-1" icon="fas fa-box" />
                                 </Link>
                             </li>
 
-                            <li v-if="$page.props.auth.user">
-                                <Link :href="route('dashboard')" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                                    Dashboard
-                                </Link>
-                            </li>
-
-                            <!-- authenticated links -->
-                            <template v-else>
-                                <li>
-                                    <Link :href="route('login')" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</Link>
-                                </li>
-                                <!--  -->
-                                <li>
-                                    <Link :href="route('register')" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Register</Link>
-                                </li>
-                            </template>
                             <!-- shopping cart icon -->
                             <li>
-                                <Link :href="route('frontend.shopping-cart')" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                                    <font-awesome-icon class="text-transparent hover:text-indigo-500 stroke-[2rem] stroke-indigo-500" icon="fas fa-cart-shopping" size="lg" />
+                                <Link :href="route('frontend.shopping-cart')" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-indigo-700 md:p-0 dark:text-white md:dark:hover:text-indigo-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                                    <font-awesome-icon class="text-transparent hover:text-indigo-500 stroke-[2rem] stroke-indigo-500" icon="fas fa-cart-shopping" />
                                 </Link>
                             </li>
+
+                            <!-- dashboard link after authenticating -->
+                            <li v-if="$page.props.auth.user">
+                                <Link :href="route('dashboard')" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-indigo-700 md:p-0 dark:text-white md:dark:hover:text-indigo-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                                    Dashboard
+                                    <font-awesome-icon icon="fas fa-dashboard" class="text-transparent stroke-[2rem] stroke-indigo-500 pl-1"/>
+                                </Link>
+                            </li>
+                            <!-- authenticated links -->
+                            <template v-else>
+                                <!-- dropdown -->
+                                <Dropdown>
+                                    <template #trigger>
+                                        <span class="inline-flex rounded-md">
+                                            <button
+                                                type="button"
+                                                class="border-2 my-4 sm:my-0 w-10 h-10 rounded-full border-indigo-200 hover:border-indigo-500 focus:ring-2 focus:ring-indigo-500"
+                                            >
+                                                <font-awesome-icon icon="fas fa-user" class="text-transparent stroke-[4rem] stroke-indigo-500"/>
+                                            </button>
+                                        </span>
+                                    </template>
+
+                                    <template #content>
+                                        <DropdownLink :href="route('login')" class="hover:bg-indigo-500 hover:text-white">
+                                            Login
+                                        </DropdownLink>
+                                        <!--  -->
+                                        <DropdownLink :href="route('register')" class="hover:bg-indigo-500 hover:text-white">
+                                            Register
+                                        </DropdownLink>
+                                    </template>
+                                </Dropdown>
+                                <!-- <li>
+                                    <Link :href="route('login')" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-indigo-700 md:p-0 dark:text-white md:dark:hover:text-indigo-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                                        Login
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link :href="route('register')" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-indigo-700 md:p-0 dark:text-white md:dark:hover:text-indigo-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                                        Register
+                                    </Link>
+                                </li> -->
+                            </template>
                         </ul>
                     </div>
                 </div>

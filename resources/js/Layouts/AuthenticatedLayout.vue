@@ -38,7 +38,7 @@ const showingNavigationDropdown = ref(false);
                             <div class="ms-3 relative sm:flex sm:items-center sm:gap-4">
                                 <div class="home-icon">
                                     <Link :href="route('home')">
-                                        <font-awesome-icon  icon="fa-solid fa-house"/>
+                                        <font-awesome-icon  icon="fa-solid fa-house" class="text-indigo"/>
                                     </Link>
                                 </div>
                                 <!--  -->
