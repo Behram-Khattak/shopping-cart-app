@@ -13,18 +13,12 @@ defineProps({
         type: Boolean,
     },
 });
-
-// get the current page url
-const currentUrl = () => {
-    return usePage().component;
-};
 </script>
 
 <template>
     <div class="min-h-screen flex flex-col sm:justify-center items-center py-6">
-        <!-- header -->
         <FrontendHeader
-            v-if="currentUrl() !== 'Auth/Login' && currentUrl() !== 'Auth/Register' && currentUrl() !== 'Auth/forgot-password'"
+            v-if="$page.component !== 'Auth/Login' && $page.component !== 'Auth/Register' && $page.component !== 'Auth/ForgotPassword'"
             :canLogin
             :canRegister
         />

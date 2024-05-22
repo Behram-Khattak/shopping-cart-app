@@ -36,32 +36,57 @@ const props = defineProps({
                         <ul v-if="props.canLogin" class="font-medium flex flex-col sm:items-center p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                             <!-- unauthenticated links -->
                             <li>
-                                <Link :href="route('home')" class="block py-2 px-3 text-white bg-indigo-700 rounded md:bg-transparent md:text-gray-900 md:hover:text-indigo-700 md:p-0 dark:text-white md:dark:text-indigo-500" aria-current="page">
-                                    Home
-                                    <font-awesome-icon class="text-transparent stroke-[2rem] sm:stroke-indigo-500 stroke-white pl-1" icon="fas fa-home" />
+                                <Link
+                                    :href="route('home')"
+                                    :class="{'bg-indigo-700 text-white md:bg-transparent md:text-indigo-700': $page.component === 'Frontend/Home'}"
+                                    class="block py-2 px-3 rounded md:bg-transparent md:text-gray-900 md:hover:text-indigo-700 md:p-0 dark:text-white md:dark:text-indigo-500" aria-current="page">
+                                        Home
+                                    <font-awesome-icon
+                                        :class="{'stroke-white sm:stroke-indigo-500': $page.component === 'Frontend/Home'}"
+                                        class="text-transparent stroke-[2rem] stroke-indigo-500 pl-1" icon="fas fa-home"
+                                    />
                                 </Link>
                             </li>
                             <!--  -->
                             <li>
-                                <Link :href="route('frontend.products')" class="block py-2 px-3 md:text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-indigo-700 md:p-0 dark:text-white md:dark:hover:text-indigo-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                                <Link
+                                    :href="route('frontend.products')"
+                                    :class="{'bg-indigo-700 text-white md:bg-transparent md:text-indigo-700': $page.component === 'Frontend/Products'}"
+                                    class="block py-2 px-3 md:text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-indigo-700 md:p-0 dark:text-white md:dark:hover:text-indigo-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+
                                     Products
-                                    <font-awesome-icon class="text-transparent stroke-[2rem] stroke-indigo-500 pl-1" icon="fas fa-box" />
+                                    <font-awesome-icon
+                                        :class="{'stroke-white sm:stroke-indigo-500': $page.component === 'Frontend/Products'}"
+                                        class="text-transparent stroke-[2rem] stroke-indigo-500 pl-1" icon="fas fa-box"
+                                    />
                                 </Link>
                             </li>
 
                             <!-- shopping cart icon -->
                             <li>
-                                <Link :href="route('frontend.shopping-cart')" class="block py-2 px-3 md:text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-indigo-700 md:p-0 dark:text-white md:dark:hover:text-indigo-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                                <Link
+                                    :href="route('frontend.shopping-cart')"
+                                    :class="{'bg-indigo-700 text-white md:bg-transparent md:text-indigo-700': $page.component === 'Frontend/ShoppingCart'}"
+                                    class="block py-2 px-3 md:text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-indigo-700 md:p-0 dark:text-white md:dark:hover:text-indigo-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+
                                     Cart
-                                    <font-awesome-icon class="text-transparent hover:text-indigo-500 stroke-[2rem] pl-1 stroke-indigo-500" icon="fas fa-cart-shopping" />
+                                    <font-awesome-icon
+                                        :class="{'stroke-white md:text-indigo-700': $page.component === 'Frontend/ShoppingCart'}"
+                                        class="text-transparent hover:text-indigo-500 stroke-[2rem] pl-1 stroke-indigo-500" icon="fas fa-cart-shopping"
+                                    />
                                 </Link>
                             </li>
 
                             <!-- dashboard link after authenticating -->
                             <li v-if="$page.props.auth.user">
-                                <Link :href="route('dashboard')" class="block py-2 px-3 md:text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-indigo-700 md:p-0 dark:text-white md:dark:hover:text-indigo-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                                    Dashboard
-                                    <font-awesome-icon icon="fas fa-dashboard" class="text-transparent stroke-[2rem] stroke-indigo-500 pl-1"/>
+                                <Link
+                                    :href="route('dashboard')"
+                                    :class="{'bg-indigo-700 text-white md:bg-transparent md:text-indigo-700': $page.component === '/Dashboard'}"
+                                    class="block py-2 px-3 md:text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-indigo-700 md:p-0 dark:text-white md:dark:hover:text-indigo-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                                        Dashboard
+                                    <font-awesome-icon
+                                        :class="{'stroke-white sm:stroke-indigo-500': $page.component === '/Dashboard'}"
+                                        class="text-transparent stroke-[2rem] stroke-indigo-500 pl-1" icon="fas fa-dashboard"/>
                                 </Link>
                             </li>
                             <!-- authenticated links -->
