@@ -4,7 +4,7 @@
 
 <template>
     <div class="shopping-card-item">
-        <div class="space-y-6 mb-8 overflow-hidden rounded-xl border-2 border-indigo-400 bg-white p-6 shadow-indigo-50 shadow-md dark:border-gray-700 dark:bg-gray-800">
+        <div class="space-y-6 mb-8 overflow-hidden hover:bg-indigo-50 transition-all ease-in border-2 border-indigo-400 bg-white p-6 shadow-indigo-50 shadow-md dark:border-gray-700 dark:bg-gray-800">
             <a href="#" class="overflow-hidden rounded">
                 <img class="mx-auto h-44 w-44 dark:hidden" src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front.svg" alt="imac image" />
             </a>

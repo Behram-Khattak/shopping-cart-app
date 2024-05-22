@@ -4,6 +4,8 @@ import FrontendFooter from '@/Components/FrontendFooter.vue';
 import Breadcrumbs from '@/Components/Breadcrumbs.vue';
 import { usePage } from '@inertiajs/vue3';
 import { Link } from '@inertiajs/vue3';
+import { onMounted } from 'vue';
+import { initFlowbite } from 'flowbite';
 
 defineProps({
     canLogin: {
@@ -12,6 +14,11 @@ defineProps({
     canRegister: {
         type: Boolean,
     },
+});
+
+// initialize components based on data attribute selectors
+onMounted(() => {
+    initFlowbite();
 });
 </script>
 

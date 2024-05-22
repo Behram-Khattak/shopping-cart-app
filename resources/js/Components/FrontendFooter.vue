@@ -13,13 +13,13 @@ import { Link } from '@inertiajs/vue3';
                     <li>
                         <Link :href="route('home')" class="hover:underline me-4 md:me-6">
                             Home
-                            <font-awesome-icon class="text-transparent stroke-[2rem] stroke-gray-500 pl-1" icon="fas fa-home" size="md" />
+                            <font-awesome-icon class="text-transparent stroke-[2rem] stroke-gray-500 pl-1" icon="fas fa-home" />
                         </Link>
                     </li>
                     <li>
                         <Link :href="route('frontend.products')" class="hover:underline me-4 md:me-6">
                             Products
-                            <font-awesome-icon class="text-transparent stroke-[2rem] stroke-gray-500 pl-1" icon="fas fa-box" size="md" />
+                            <font-awesome-icon class="text-transparent stroke-[2rem] stroke-gray-500 pl-1" icon="fas fa-box" />
                         </Link>
                     </li>
                 </ul>

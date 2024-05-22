@@ -33,10 +33,10 @@ defineProps({
                             <!-- Modal toggle filter products button -->
                             <button data-modal-target="default-modal"
                                     data-modal-toggle="default-modal"
-                                    class="block text-indigo-500 border-indigo-500 border-2 hover:bg-indigo-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-indigo-300 rounded-lg text-sm px-3 py-2 text-center"
+                                    class="block text-indigo-500 border-indigo-500 border-2 hover:bg-indigo-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-indigo-300 text-sm px-3 py-2 text-center"
                                     type="button">
 
-                                    <font-awesome-icon icon="fas fa-list" class="font-bold" size="xl"/>
+                                    <font-awesome-icon icon="fas fa-list" class="font-bold fa-xl"/>
                             </button>
 
                             <!-- Filter Modal -->
