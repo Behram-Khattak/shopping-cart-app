@@ -6,6 +6,7 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import ShoppingCard from '@/Components/ShoppingCard.vue';
+import Banner from '@/Components/Banner.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 
 defineProps({
@@ -22,6 +23,8 @@ defineProps({
     <GuestLayout :canLogin :canRegister>
         <Head title="Home" />
 
+        <!-- Banner -->
+        <Banner />
         <!-- main content shopping card -->
         <div class="container">
             <div class="shopping-card-items max-w-screen-xl mx-auto px-4 py-8">
